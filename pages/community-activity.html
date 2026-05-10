@@ -148,86 +148,116 @@
         margin-bottom: 2rem;
       }
 
-      /* ===== MEMORY DUMP GRID ===== */
+      /* ===== FIXED MEMORY DUMP IMAGE ORIENTATION SYSTEM ===== */
+
       .memory-dump-grid {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-auto-rows: 120px;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-auto-rows: 140px;
         gap: 14px;
-        padding: 1.5rem;
+        padding: 2rem;
         background: #fdfcf9;
-        border-radius: 14px;
-        box-shadow: 0 10px 30px rgba(44, 76, 59, 0.06);
-        margin-bottom: 3rem;
-        position: relative;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(44, 76, 59, 0.05);
+        grid-auto-flow: dense;
       }
 
+      /* BASE IMAGE STYLE */
       .memory-item {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
+        border-radius: 14px;
+        display: block;
         cursor: pointer;
+        background: #eef3ed;
         transition:
           transform 0.35s ease,
           box-shadow 0.35s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        position: relative;
-        z-index: 1;
+      }
+
+      /* LANDSCAPE = fill width naturally */
+      .memory-item.landscape {
+        object-fit: cover;
+      }
+
+      /* PORTRAIT = contain fully so no head chopping */
+      .memory-item.portrait {
+        object-fit: contain;
+        background: linear-gradient(135deg, #edf4ee, #dce9df);
+        padding: 6px;
+      }
+
+      /* SQUARE */
+      .memory-item.square {
+        object-fit: cover;
       }
 
       .memory-item:hover {
-        transform: scale(1.03) !important;
-        box-shadow: 0 8px 20px rgba(44, 76, 59, 0.18);
-        z-index: 5;
+        transform: scale(1.03) rotate(0deg) !important;
+        box-shadow: 0 10px 24px rgba(44, 76, 59, 0.18);
+        z-index: 2;
+      }
+
+      /* GRID SPANS */
+      .span-1x1 {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .span-2x1 {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      .span-1x2 {
+        grid-column: span 1;
+        grid-row: span 2;
       }
 
       .span-2x2 {
         grid-column: span 2;
         grid-row: span 2;
       }
-      .span-2x1 {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-      .span-1x2 {
-        grid-column: span 1;
-        grid-row: span 2;
-      }
+
       .span-3x2 {
         grid-column: span 3;
         grid-row: span 2;
       }
-      .span-1x1 {
-        grid-column: span 1;
-        grid-row: span 1;
+
+      /* PORTRAIT IMAGES AUTO FORCE TALLER CELLS */
+      .memory-item.portrait.span-2x1,
+      .memory-item.portrait.span-3x2 {
+        grid-column: span 1 !important;
+        grid-row: span 2 !important;
       }
 
-      /* ===== NATURE FILLERS ===== */
+      /* LANDSCAPE IMAGES AVOID AWKWARD TALL CELLS */
+      .memory-item.landscape.span-1x2 {
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+      }
+
+      /* FILLERS */
       .nature-filler {
-        grid-column: span 1;
-        grid-row: span 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, #e9efe7, #d4e6d0);
-        border-radius: 10px;
+        background: linear-gradient(135deg, #f4f8f4, #e6efe8);
+        border-radius: 14px;
+        min-height: 100%;
         overflow: hidden;
-        position: relative;
-        opacity: 0.85;
+        padding: 12px;
       }
 
       .nature-filler svg {
         width: 70%;
         height: 70%;
-        opacity: 0.6;
       }
 
-      .nature-filler.filler-lg {
+      .filler-lg {
         grid-column: span 2;
-        grid-row: span 1;
+        grid-row: span 2;
       }
-
       /* ===== MOBILE ===== */
       @media (max-width: 900px) {
         .container {
@@ -410,16 +440,46 @@
 
       <!-- ===== MEMBER 4 ===== -->
       <div class="activity-card member-block">
-        <span class="member-tag">[Member 4 Name]</span>
+        <span class="member-tag">Allan C. Tagle</span>
+
         <div class="member-layout">
+          <!-- CERTIFICATE -->
           <div class="cert-col">
             <p class="cert-label">Certificate of Participation</p>
             <img
-              src="https://lh3.googleusercontent.com/d/REPLACE_MEMBER4_CERT_ID"
+              src="https://lh3.googleusercontent.com/d/1NY4xnypHdVgEGRidrTvvIzxxHlEglKxG"
               class="cert-img"
               alt="Member 4 Certificate"
+              style="
+                transform: rotate(deg);
+                object-fit: contain;
+                max-height: 500px;
+                width: auto;
+                display: block;
+                margin: 0 auto;
+              "
             />
           </div>
+
+          <!-- EXTRA IMAGE -->
+          <div class="cert-col">
+            <p class="cert-label">Additional Documentation</p>
+            <img
+              src="https://lh3.googleusercontent.com/d/1sPVp7F5_Sj0UYHg5Qg9L5N_aJl9PXGla"
+              class="cert-img"
+              alt="Member 4 Extra Image"
+              style="
+                transform: rotate(90deg);
+                object-fit: contain;
+                max-height: 500px;
+                width: auto;
+                display: block;
+                margin: 0 auto;
+              "
+            />
+          </div>
+
+          <!-- REFLECTION -->
           <div class="essay-text">
             <h4 class="tree-title" style="margin-bottom: 1rem">
               Reflection Paper
@@ -530,17 +590,151 @@
         <img
           src="https://lh3.googleusercontent.com/d/14c4Sp4mUzQ7e_gAV0TUzqjEaakK-FNSh"
           class="memory-item"
-          alt="Memory 14"
+          alt="Memory 15"
         />
         <img
           src="https://lh3.googleusercontent.com/d/1alSG9RcubgKaEZl8DDs7udETxUg6Y3zk"
           class="memory-item"
-          alt="Memory 14"
+          alt="Memory 16"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1z2tx2YJa7bEKQgKSu_cjgI9FBGkz2sw9"
+          class="memory-item"
+          alt="Memory 17"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1P7Yave2GbO3hEB2effWskwo5Ysk_zXNn"
+          class="memory-item"
+          alt="Memory 18"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1JtxmwCVL9LQkVYuMhGCcpUjsp0GGU9pQ"
+          class="memory-item"
+          alt="Memory 19"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1AwNMyEmqwRKx6Oe2KrnYUvvAcxejIWbV"
+          class="memory-item"
+          alt="Memory 20"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1AvsIi7-fnUjyaj8Ayjg89IDwE6gLsByy"
+          class="memory-item"
+          alt="Memory 21"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1jb-rtudW_20_IAgPz5bKAcLYsJTTOYt_"
+          class="memory-item"
+          alt="Memory 22"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1h7AUxY9UbiAPcnqzyInGQSQ8F0nYbwPC"
+          class="memory-item"
+          alt="Memory 23"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1eqGnBJn4Lcs0VYVuPpWm4d17mVNYnJvP"
+          class="memory-item"
+          alt="Memory 24"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/16xNquTWmD63tKGx5tZNVGBiyCXExtQJy"
+          class="memory-item"
+          alt="Memory 25"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/1MG7GMjVGyZE20NNYSAZDwjDiJLZnmDoT"
+          class="memory-item"
+          alt="Memory 26"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/182Ybdukegti2R636HvDEUAio-yyjhsIz"
+          class="memory-item"
+          alt="Memory 26"
         />
       </div>
     </div>
 
     <script>
+      // ===== SMART ORIENTATION DETECTION + LAYOUT FIX =====
+      const grid = document.getElementById("memoryDumpGrid");
+      const memoryItems = document.querySelectorAll(
+        "#memoryDumpGrid .memory-item",
+      );
+
+      const patterns = [
+        [
+          "span-2x2",
+          "span-1x1",
+          "span-1x2",
+          "span-2x1",
+          "span-1x1",
+          "span-2x2",
+          "span-1x2",
+          "span-2x1",
+        ],
+        [
+          "span-3x2",
+          "span-1x1",
+          "span-1x2",
+          "span-2x1",
+          "span-1x1",
+          "span-2x2",
+          "span-1x1",
+          "span-2x1",
+        ],
+        [
+          "span-2x1",
+          "span-2x2",
+          "span-1x1",
+          "span-1x2",
+          "span-3x2",
+          "span-1x1",
+          "span-2x1",
+          "span-1x1",
+        ],
+        [
+          "span-1x2",
+          "span-2x2",
+          "span-2x1",
+          "span-1x1",
+          "span-2x2",
+          "span-1x1",
+          "span-3x2",
+          "span-1x1",
+        ],
+      ];
+
+      const selectedPattern =
+        patterns[Math.floor(Math.random() * patterns.length)];
+
+      memoryItems.forEach((item, index) => {
+        const img = new Image();
+        img.src = item.src;
+
+        img.onload = function () {
+          const w = img.naturalWidth;
+          const h = img.naturalHeight;
+
+          // DETECT ORIENTATION
+          if (h > w * 1.15) {
+            item.classList.add("portrait");
+          } else if (w > h * 1.15) {
+            item.classList.add("landscape");
+          } else {
+            item.classList.add("square");
+          }
+
+          // APPLY RANDOM BASE PATTERN
+          item.classList.add(
+            selectedPattern[index % selectedPattern.length] || "span-1x1",
+          );
+
+          // SUBTLE RANDOM TILT
+          const rotate = (Math.random() * 4 - 2).toFixed(2);
+          item.style.transform = `rotate(${rotate}deg)`;
+        };
+      });
       document.addEventListener("DOMContentLoaded", () => {
         // ===== LIGHTBOX =====
         if (window.location.hash) {
