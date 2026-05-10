@@ -1,0 +1,530 @@
+/* ==========================================
+   GLOBAL VARIABLES & IMPORTS
+========================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700;900&display=swap");
+
+:root {
+  --primary-color: #2c4c3b; /* Deep Forest Green */
+  --accent-color: #4a7c59; /* Lighter Leaf Green */
+  --bg-color: #f4f1ea; /* Warm Sand/Off-White */
+  --text-main: #1a1a1a; /* Soft Black */
+  --text-muted: #555555; /* Gray for secondary text */
+  --white: #ffffff;
+  --transition: all 0.3s ease;
+}
+
+/* ==========================================
+   RESET & BASE STYLES
+========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Merriweather", serif;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+========================================== */
+header {
+  background-color: rgba(244, 241, 234, 0.95);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.logo span {
+  color: var(--accent-color);
+  font-style: italic;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Use a high-quality nature background image here */
+  background:
+    linear-gradient(rgba(44, 76, 59, 0.7), rgba(44, 76, 59, 0.7)),
+    url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop")
+      center/cover;
+  color: var(--white);
+  padding: 0 2rem;
+}
+
+.hero-content h2 {
+  color: var(--white);
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  color: var(--white);
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   ORGANIC VIBE SECTIONS (Activities & Team)
+========================================== */
+.activities-section,
+.team-section {
+  background-color: #e9efe7;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232c4c3b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  /* Calculate exact full screen minus the header */
+  min-height: calc(100vh - 90px);
+  display: flex;
+  align-items: center; /* Vertically centers the container */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Force the container and all text inside to center properly */
+.activities-section .container,
+.team-section .container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.activities-section h3,
+.team-section h3 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-main);
+  width: 100%;
+}
+
+/* ==========================================
+   COURSE SYNTHESIS SECTION (Glassmorphism Collage)
+========================================== */
+.about-section {
+  /* I used a high-res Unsplash image of a forest edge as a placeholder. 
+       If you make a custom collage in Canva, swap this URL with your GDrive link! */
+  background: url("https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2560&auto=format&fit=crop")
+    center/cover no-repeat fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 90px 2rem 2rem;
+}
+
+.glass-card {
+  /* This creates the frosted glass effect */
+  background: rgba(
+    244,
+    241,
+    234,
+    0.85
+  ); /* Your warm sand theme color, made 85% transparent */
+  backdrop-filter: blur(12px); /* Blurs the collage behind it */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  padding: 4rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle shine on the card edges */
+}
+
+.glass-card h3 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.glass-card p {
+  color: var(--text-main);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ==========================================
+   ACTIVITIES GRID & CARDS
+========================================== */
+.activity-grid {
+  display: grid;
+  /* This rule ensures the cards stay side-by-side if there is room */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.activity-card {
+  background: #fdfcf9; /* Warm off-white */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(44, 76, 59, 0.08);
+  transition: var(--transition);
+  border: 1px solid rgba(44, 76, 59, 0.1);
+  display: flex;
+  flex-direction: column; /* Keeps footer links aligned */
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(44, 76, 59, 0.15);
+}
+
+.card-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  background-color: #e2dfd8; /* Fallback color for missing images */
+}
+
+.activity-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pushes the "Read More" link to the bottom */
+}
+
+.activity-info h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.summary {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.read-more {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
+  display: inline-flex; /* add this */
+  align-items: center; /* add this */
+  gap: 0.3rem; /* add this */
+  white-space: nowrap;
+}
+
+.read-more:hover {
+  color: var(--accent-color);
+}
+
+/* ==========================================
+   TEAM GRID (STRICT SINGLE LINE & SPACING FIX)
+========================================== */
+.team-grid {
+  display: grid;
+  /* This forcefully creates exactly 5 equal columns, guaranteeing one line */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* Increased from 1rem to 1.5rem to push the text further away from the image */
+  margin-bottom: 1.5rem;
+  border: 4px solid #fdfcf9;
+  box-shadow: 0 4px 10px rgba(44, 76, 59, 0.1);
+  background-color: #e2dfd8;
+}
+
+.team-member h5 {
+  /* Added margin and line-height to let long names breathe */
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.team-member .role {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Mobile responsive: If viewed on a phone, let them stack normally so it isn't unreadable */
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+footer p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (MOBILE)
+========================================== */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   HUG A TREE SPECIFIC STYLES
+========================================== */
+.tree-title {
+  color: var(--accent-color);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.observation-box {
+  margin-bottom: 1.5rem;
+}
+
+.reflection-quote {
+  background: rgba(74, 124, 89, 0.05);
+  border-left: 4px solid var(--accent-color);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--primary-color);
+}
+
+.reflection-quote strong {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+/* ==========================================
+   PHOTO DUMP COLLAGE STYLES
+========================================== */
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 15px;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: #fdfcf9;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(44, 76, 59, 0.05);
+}
+
+.collage-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.collage-item:hover {
+  transform: scale(1.03) rotate(0deg);
+  z-index: 10;
+}
+
+/* Creating the scattered/random look */
+.item-1 {
+  grid-column: span 2;
+  grid-row: span 2;
+  transform: rotate(-2deg);
+}
+.item-2 {
+  grid-column: span 1;
+  grid-row: span 1;
+  transform: rotate(3deg);
+}
+.item-3 {
+  grid-column: span 1;
+  grid-row: span 2;
+  transform: rotate(-1deg);
+}
+.item-4 {
+  grid-column: span 1;
+  grid-row: span 1;
+  transform: rotate(2deg);
+}
+.item-5 {
+  grid-column: span 2;
+  grid-row: span 1;
+  transform: rotate(-3deg);
+}
+.item-6 {
+  grid-column: span 2;
+  grid-row: span 1;
+  transform: rotate(1deg);
+}
+/* ==========================================
+   LIGHTBOX / IMAGE MODAL STYLES
+========================================== */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 2000; /* Sits on top of your fixed header */
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Dark transparent background */
+  backdrop-filter: blur(5px); /* Premium blur effect */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: zoomIn 0.3s ease; /* Smooth pop-in animation */
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #f1f1f1;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-modal:hover {
+  color: var(--accent-color);
+}
+
+/* Change the cursor to a pointer so users know they can click the images */
+.collage-item,
+.img-placeholder {
+  cursor: pointer;
+}
+/* Add scroll margin so fixed header doesn't cover section titles */
+section {
+  scroll-margin-top: 10px;
+}

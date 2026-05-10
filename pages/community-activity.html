@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Activity | EGE 312</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .cert-img {
+        transform: rotate(-90deg);
+        width: 100%;
+        max-width: 500px;
+        max-height: 700px; /* add this */
+        object-fit: contain; /* change cover to contain so nothing gets cropped */
+        border-radius: 8px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto 0.5rem auto;
+        box-shadow: 0 4px 16px rgba(44, 76, 59, 0.12);
+      }
+
+      .cert-label {
+        font-size: 1.1rem;
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-family: "Merriweather", serif;
+        font-weight: 700;
+      }
+
+      .member-block {
+        margin-bottom: 3rem;
+        padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(44, 76, 59, 0.1);
+      }
+
+      .member-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .cert-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .member-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="activities-section">
+    <header>
+      <div class="logo">
+        <h1>EGE 312 <span>Portfolio</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="hug-a-tree.html">Hug a Tree</a></li>
+          <li><a href="slogan.html">Slogans</a></li>
+          <li><a href="community-activity.html">Community Activity</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="imageModal" class="modal">
+      <span class="close-modal">&times;</span>
+      <img class="modal-content" id="expandedImg" alt="Expanded view" />
+    </div>
+
+    <div class="container" style="padding-top: 8rem">
+      <div class="page-header">
+        <h2>Activity IV: Community Engagement</h2>
+        <p class="section-subtitle">
+          Documentation, certifications, and our personal takeaways from
+          engaging directly with environmental rehabilitation.
+        </p>
+      </div>
+
+      <h3
+        style="
+          text-align: center;
+          color: var(--primary-color);
+          margin-bottom: 2rem;
+        "
+      >
+        Overall Event Documentation
+      </h3>
+
+      <div class="collage-grid">
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_FILE_ID_1"
+          class="collage-item item-1"
+          alt="Event Action"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_FILE_ID_2"
+          class="collage-item item-2"
+          alt="Event Detail"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_FILE_ID_3"
+          class="collage-item item-3"
+          alt="Vertical Action"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_FILE_ID_4"
+          class="collage-item item-4"
+          alt="Group"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_FILE_ID_5"
+          class="collage-item item-5"
+          alt="Wide Shot 1"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_FILE_ID_6"
+          class="collage-item item-6"
+          alt="Wide Shot 2"
+        />
+      </div>
+
+      <!-- ===== STELLAR ===== -->
+      <div class="activity-card member-block">
+        <span class="member-tag">Stellar</span>
+        <div class="member-layout">
+          <div class="cert-col">
+            <p class="cert-label">Certificate of Participation</p>
+            <img
+              src="https://lh3.googleusercontent.com/d/1wY10gSAd90aLjZ6PU-QJW_e2SZ3f3Ipp"
+              class="cert-img"
+              alt="Stellar Certificate"
+            />
+          </div>
+          <div class="essay-text">
+            <h4 class="tree-title" style="margin-bottom: 1rem">
+              Reflection Paper
+            </h4>
+            <p>
+              [Stellar: Paste your 250-850 word reflection here. Remember to tie
+              it back to the CLOs—how the activity demonstrated interactions
+              between human activities and the ecosystem, and how it promotes
+              sustainable community transformation.]
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MEMBER 2 ===== -->
+      <div class="activity-card member-block">
+        <span class="member-tag">[Member 2 Name]</span>
+        <div class="member-layout">
+          <div class="cert-col">
+            <p class="cert-label">Certificate of Participation</p>
+            <img
+              src="https://lh3.googleusercontent.com/d/REPLACE_MEMBER2_CERT_ID"
+              class="cert-img"
+              alt="Member 2 Certificate"
+            />
+          </div>
+          <div class="essay-text">
+            <h4 class="tree-title" style="margin-bottom: 1rem">
+              Reflection Paper
+            </h4>
+            <p>[Paste Member 2's reflection here.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MEMBER 3 ===== -->
+      <div class="activity-card member-block">
+        <span class="member-tag">[Member 3 Name]</span>
+        <div class="member-layout">
+          <div class="cert-col">
+            <p class="cert-label">Certificate of Participation</p>
+            <img
+              src="https://lh3.googleusercontent.com/d/REPLACE_MEMBER3_CERT_ID"
+              class="cert-img"
+              alt="Member 3 Certificate"
+            />
+          </div>
+          <div class="essay-text">
+            <h4 class="tree-title" style="margin-bottom: 1rem">
+              Reflection Paper
+            </h4>
+            <p>[Paste Member 3's reflection here.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MEMBER 4 ===== -->
+      <div class="activity-card member-block">
+        <span class="member-tag">[Member 4 Name]</span>
+        <div class="member-layout">
+          <div class="cert-col">
+            <p class="cert-label">Certificate of Participation</p>
+            <img
+              src="https://lh3.googleusercontent.com/d/REPLACE_MEMBER4_CERT_ID"
+              class="cert-img"
+              alt="Member 4 Certificate"
+            />
+          </div>
+          <div class="essay-text">
+            <h4 class="tree-title" style="margin-bottom: 1rem">
+              Reflection Paper
+            </h4>
+            <p>[Paste Member 4's reflection here.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MEMBER 5 ===== -->
+      <div class="activity-card member-block">
+        <span class="member-tag">[Member 5 Name]</span>
+        <div class="member-layout">
+          <div class="cert-col">
+            <p class="cert-label">Certificate of Participation</p>
+            <img
+              src="https://lh3.googleusercontent.com/d/REPLACE_MEMBER5_CERT_ID"
+              class="cert-img"
+              alt="Member 5 Certificate"
+            />
+          </div>
+          <div class="essay-text">
+            <h4 class="tree-title" style="margin-bottom: 1rem">
+              Reflection Paper
+            </h4>
+            <p>[Paste Member 5's reflection here.]</p>
+          </div>
+        </div>
+      </div>
+
+      <h3
+        style="
+          text-align: center;
+          color: var(--primary-color);
+          margin-top: 5rem;
+          margin-bottom: 1rem;
+        "
+      >
+        Complete Team Photo Dump
+      </h3>
+      <p
+        style="
+          text-align: center;
+          color: var(--text-muted);
+          margin-bottom: 3rem;
+        "
+      >
+        Behind the scenes and extra memories from our engagement.
+      </p>
+
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          grid-auto-rows: 200px;
+          gap: 15px;
+          padding: 2rem;
+          background: #fdfcf9;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(44, 76, 59, 0.05);
+        "
+      >
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_1"
+          class="collage-item"
+          alt="Memory 1"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_2"
+          class="collage-item"
+          alt="Memory 2"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_3"
+          class="collage-item"
+          alt="Memory 3"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_4"
+          class="collage-item"
+          alt="Memory 4"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_5"
+          class="collage-item"
+          alt="Memory 5"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_6"
+          class="collage-item"
+          alt="Memory 6"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_7"
+          class="collage-item"
+          alt="Memory 7"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_8"
+          class="collage-item"
+          alt="Memory 8"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_9"
+          class="collage-item"
+          alt="Memory 9"
+        />
+        <img
+          src="https://lh3.googleusercontent.com/d/REPLACE_DUMP_ID_10"
+          class="collage-item"
+          alt="Memory 10"
+        />
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.location.hash) {
+          history.replaceState(null, null, window.location.pathname);
+        }
+        window.scrollTo(0, 0);
+
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("expandedImg");
+        const closeBtn = document.querySelector(".close-modal");
+
+        document.querySelectorAll(".collage-item, .cert-img").forEach((img) => {
+          img.style.cursor = "pointer";
+          img.addEventListener("click", function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+          });
+        });
+
+        closeBtn.addEventListener(
+          "click",
+          () => (modal.style.display = "none"),
+        );
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) modal.style.display = "none";
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") modal.style.display = "none";
+        });
+      });
+    </script>
+  </body>
+</html>
