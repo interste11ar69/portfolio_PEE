@@ -6,6 +6,75 @@
     <title>Community Activity | EGE 312</title>
     <link rel="stylesheet" href="../css/style.css" />
     <style>
+      .memory-caption {
+        pointer-events: none;
+      }
+      .memory-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 14px;
+        cursor: pointer;
+        background: #eef3ed;
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .memory-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 14px;
+      }
+
+      .memory-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 0.6rem 0.4rem 0.6rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+        color: #fff;
+        font-size: 0.75rem;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        border-radius: 0 0 10px 10px;
+        pointer-events: none;
+      }
+      .collage-item-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .collage-item-wrap .collage-item {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+      }
+
+      .collage-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 0.75rem 0.5rem 0.75rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+        color: #fff;
+        font-size: 0.78rem;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        border-radius: 0 0 8px 8px;
+        pointer-events: none;
+      }
       /* ===== PAGE CONTAINER ===== */
       .container {
         max-width: 1200px;
@@ -338,41 +407,61 @@
       </h3>
 
       <div class="collage-grid">
-        <img
-          src="https://lh3.googleusercontent.com/d/1uVHrL6mxDJKIjuAH1Yx9nJHmq4fT31_n"
-          class="collage-item item-1"
-          alt="Event Action"
-        />
-        <img
-          src="https://lh3.googleusercontent.com/d/1qymfPQb35FQXM4-8PGb64LoCPRJbvR54"
-          class="collage-item item-2"
-          alt="Event Detail"
-        />
-        <img
-          src="https://lh3.googleusercontent.com/d/1-hZPRDGuReST3ejyaUlVXwig23UBP_of"
-          class="collage-item item-3"
-          alt="Vertical Action"
-        />
-        <img
-          src="https://lh3.googleusercontent.com/d/18Irn3G5GagXnwRSjaVSfx2p8oKc1Ovb0"
-          class="collage-item item-4"
-          alt="Group"
-        />
-        <img
-          src="https://lh3.googleusercontent.com/d/11tqY0NOs9Ih_nL-bj3tc-Imoe_2WIDDQ"
-          class="collage-item item-5"
-          alt="Wide Shot 1"
-        />
-        <img
-          src="https://lh3.googleusercontent.com/d/1nQrp9m2KtcxbIvl-5oUNMGcAK5WA0SzK"
-          class="collage-item item-6"
-          alt="Wide Shot 2"
-        />
+        <div class="collage-item-wrap item-1">
+          <img
+            src="https://lh3.googleusercontent.com/d/1uVHrL6mxDJKIjuAH1Yx9nJHmq4fT31_n"
+            class="collage-item"
+            alt="Event Action"
+          />
+          <span class="collage-caption">Tree planting proper daplin sapa</span>
+        </div>
+        <div class="collage-item-wrap item-2">
+          <img
+            src="https://lh3.googleusercontent.com/d/1qymfPQb35FQXM4-8PGb64LoCPRJbvR54"
+            class="collage-item"
+            alt="Event Detail"
+          />
+          <span class="collage-caption">Cute nag gunit ug tanom</span>
+        </div>
+        <div class="collage-item-wrap item-3">
+          <img
+            src="https://lh3.googleusercontent.com/d/1-hZPRDGuReST3ejyaUlVXwig23UBP_of"
+            class="collage-item"
+            alt="Vertical Action"
+          />
+          <span class="collage-caption">ugbok syag stick guys</span>
+        </div>
+        <div class="collage-item-wrap item-4">
+          <img
+            src="https://lh3.googleusercontent.com/d/18Irn3G5GagXnwRSjaVSfx2p8oKc1Ovb0"
+            class="collage-item"
+            alt="Group"
+          />
+          <span class="collage-caption">otw sapa</span>
+        </div>
+        <div class="collage-item-wrap item-5">
+          <img
+            src="https://lh3.googleusercontent.com/d/11tqY0NOs9Ih_nL-bj3tc-Imoe_2WIDDQ"
+            class="collage-item"
+            alt="Wide Shot 1"
+          />
+          <span class="collage-caption"
+            >Kagawad Jr yaranon and kagawad dwight mitra</span
+          >
+        </div>
+        <div class="collage-item-wrap item-6">
+          <img
+            src="https://lh3.googleusercontent.com/d/1nQrp9m2KtcxbIvl-5oUNMGcAK5WA0SzK"
+            class="collage-item"
+            alt="Wide Shot 2"
+          />
+          <span class="collage-caption">konsehal Al Ryan Alejandre</span>
+        </div>
       </div>
 
       <!-- ===== STELLAR ===== -->
       <div class="activity-card member-block">
-        <span class="member-tag">Stellar</span>
+        <span class="member-tag">John Benedict P. Supnet</span>
         <div class="member-layout">
           <div class="cert-col">
             <p class="cert-label">Certificate of Participation</p>
@@ -517,11 +606,13 @@
       </p>
 
       <div class="memory-dump-grid" id="memoryDumpGrid">
-        <img
-          src="https://lh3.googleusercontent.com/d/1BMEyV60K0kBgr9WfH21f5D1JKXVIeYTT"
-          class="memory-item"
-          alt="Memory 1"
-        />
+        <div class="memory-wrap memory-item">
+          <img
+            src="https://lh3.googleusercontent.com/d/1BMEyV60K0kBgr9WfH21f5D1JKXVIeYTT"
+            alt="Memory 1"
+          />
+          <span class="memory-caption">cutie malubago seedling</span>
+        </div>
         <img
           src="https://lh3.googleusercontent.com/d/1bUBNI2nJWWktUmOv9kwMRecyE-CnZ7QV"
           class="memory-item"
@@ -537,11 +628,14 @@
           class="memory-item"
           alt="Memory 4"
         />
-        <img
-          src="https://lh3.googleusercontent.com/d/15ori4p-Opg8TFRXAQOtPk6oiPbWLc3ZH"
-          class="memory-item"
-          alt="Memory 5"
-        />
+        <div class="memory-wrap memory-item">
+          <img
+            src="https://lh3.googleusercontent.com/d/15ori4p-Opg8TFRXAQOtPk6oiPbWLc3ZH"
+            class="memory-item"
+            alt="Memory 5"
+          />
+          <span class="memory-caption">meet up at rose bake shop mandug</span>
+        </div>
         <img
           src="https://lh3.googleusercontent.com/d/1pjFGe2I05FrdZmlRxQrk_O19InVT5BjN"
           class="memory-item"
@@ -552,11 +646,14 @@
           class="memory-item"
           alt="Memory 7"
         />
-        <img
-          src="https://lh3.googleusercontent.com/d/1KtqKZ-XhkczqBhssvR2dhitfC50WChdM"
-          class="memory-item"
-          alt="Memory 8"
-        />
+        <div class="memory-wrap memory-item">
+          <img
+            src="https://lh3.googleusercontent.com/d/1KtqKZ-XhkczqBhssvR2dhitfC50WChdM"
+            class="memory-item"
+            alt="Memory 8"
+          />
+          <span class="memory-caption">Dig hole jacey plant</span>
+        </div>
         <img
           src="https://lh3.googleusercontent.com/d/16MNGgiruAsjKq2XojabEbNeOhjk6rF8Z"
           class="memory-item"
@@ -747,12 +844,23 @@
         const closeBtn = document.querySelector(".close-modal");
 
         document
-          .querySelectorAll(".collage-item, .cert-img, .memory-item")
-          .forEach((img) => {
-            img.style.cursor = "pointer";
-            img.addEventListener("click", function () {
+          .querySelectorAll(
+            ".collage-item, .cert-img, .memory-wrap, .memory-item",
+          )
+          .forEach((item) => {
+            item.style.cursor = "pointer";
+
+            item.addEventListener("click", function () {
               modal.style.display = "block";
-              modalImg.src = this.src;
+
+              // If wrapper has inner image
+              if (this.querySelector && this.querySelector("img")) {
+                modalImg.src = this.querySelector("img").src;
+              }
+              // If standalone image
+              else {
+                modalImg.src = this.src;
+              }
             });
           });
 
