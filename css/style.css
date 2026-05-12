@@ -528,3 +528,19 @@ footer p {
 section {
   scroll-margin-top: 10px;
 }
+.essay-text p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+.essay-text h4,
+.essay-text .tree-title {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.essay-text {
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.9;
+  font-size: 1.05rem;
+  color: var(--text-color);
+}

@@ -476,10 +476,51 @@
               Reflection Paper
             </h4>
             <p>
-              [Stellar: Paste your 250-850 word reflection here. Remember to tie
-              it back to the CLOs—how the activity demonstrated interactions
-              between human activities and the ecosystem, and how it promotes
-              sustainable community transformation.]
+              Participating in the Malubago seedling planting activity along the
+              Davao River was not something I had to be convinced to do. I
+              initiated the connection between my group and the DMMA-led CWTS
+              event through personal ties rooted in my family's long involvement
+              in our barangay — my grandfather, a former president of the senior
+              citizen and PWD association in Mandug, maintained relationships
+              with several kagawads over the years. One of them happened to
+              oversee the barangay's agriculture sector and was directly
+              coordinating the planting event. That single connection made
+              everything smoother than it had any right to be, cutting through
+              the usual paperwork and permit requirements that would have
+              delayed or derailed us entirely. I coordinated closely with the
+              kagawad through multiple follow-ups, confirmed our slot as
+              tag-alongs, and made sure we arrived at the barangay hall early
+              enough to be properly introduced before the activity began. The
+              planting itself felt natural to me in a way it might not have for
+              others. Before college, I spent significant time doing farm work —
+              digging, planting, and maintaining crops was just part of life
+              growing up. On the day of the activity, the process was
+              straightforward: dig the hole to the right depth, remove the black
+              plastic casing from the seedling carefully, lower it in, cover it
+              to the correct level, and stake a small stick beside it to mark
+              the spot and protect it from being accidentally stepped on. My
+              groupmates and I documented everything as we went, and despite one
+              member arriving late and having to join another group, the overall
+              energy was genuinely good. We were laughing, moving, working — it
+              did not feel like an obligation. What actually stayed with me was
+              something Councilor Al Ryan Alejandre said during his brief
+              remarks before the planting began. He explained that the stretch
+              of riverbank where we were working is notoriously prone to
+              flooding, with soil erosion stripping the land during heavy rains.
+              The Malubago, or Hibiscus tiliaceus, was specifically chosen
+              because it holds soil in place with its root system while
+              remaining resistant to prolonged water exposure — a plant doing
+              quiet, unglamorous work to protect the people who live nearby.
+              That framing shifted how I thought about what we were doing. It
+              was not symbolic tree planting for the sake of a photo or a
+              certificate. Each seedling planted along that bank is a small
+              structural intervention against a recurring problem that affects
+              real families in Mandug. I even took it upon myself to create and
+              print the participation certificates afterward rather than wait
+              for the barangay to process them, just to make sure my groupmates
+              received documentation without unnecessary delay. Small actions,
+              done properly, tend to matter more than grand gestures done
+              halfway.
             </p>
           </div>
         </div>
@@ -832,8 +873,9 @@
           item.style.transform = `rotate(${rotate}deg)`;
         };
       });
+
+      // ===== COMMUNITY PAGE LIGHTBOX (ROTATION-FIXED FOR CERTIFICATES) =====
       document.addEventListener("DOMContentLoaded", () => {
-        // ===== LIGHTBOX =====
         if (window.location.hash) {
           history.replaceState(null, null, window.location.pathname);
         }
@@ -843,36 +885,51 @@
         const modalImg = document.getElementById("expandedImg");
         const closeBtn = document.querySelector(".close-modal");
 
+        // ALL CLICKABLE IMAGES
         document
           .querySelectorAll(
-            ".collage-item, .cert-img, .memory-wrap, .memory-item",
+            ".collage-item, .memory-item, .cert-img, .cert-img-secondary",
           )
-          .forEach((item) => {
-            item.style.cursor = "pointer";
+          .forEach((img) => {
+            img.style.cursor = "pointer";
 
-            item.addEventListener("click", function () {
+            img.addEventListener("click", function () {
               modal.style.display = "block";
+              modalImg.src = this.src;
 
-              // If wrapper has inner image
-              if (this.querySelector && this.querySelector("img")) {
-                modalImg.src = this.querySelector("img").src;
-              }
-              // If standalone image
-              else {
-                modalImg.src = this.src;
+              // Reset first
+              modalImg.style.transform = "none";
+
+              // If certificate image is rotated on page, rotate inside modal too
+              if (
+                this.classList.contains("cert-img") ||
+                this.classList.contains("cert-img-secondary")
+              ) {
+                modalImg.style.transform = "rotate(-90deg)";
               }
             });
           });
 
-        closeBtn.addEventListener(
-          "click",
-          () => (modal.style.display = "none"),
-        );
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) modal.style.display = "none";
+        // CLOSE BUTTON
+        closeBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+          modalImg.style.transform = "none";
         });
+
+        // CLICK OUTSIDE TO CLOSE
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+            modalImg.style.transform = "none";
+          }
+        });
+
+        // ESC TO CLOSE
         document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") modal.style.display = "none";
+          if (e.key === "Escape") {
+            modal.style.display = "none";
+            modalImg.style.transform = "none";
+          }
         });
 
         // ===== PHOTO DUMP LAYOUT =====
