@@ -578,7 +578,7 @@
             <p class="cert-label">Certificate of Participation</p>
             <img
               src="https://lh3.googleusercontent.com/d/1NY4xnypHdVgEGRidrTvvIzxxHlEglKxG"
-              class="cert-img"
+              class="cert-img member4-cert"
               alt="Member 4 Certificate"
               style="
                 transform: rotate(deg);
@@ -885,7 +885,6 @@
         const modalImg = document.getElementById("expandedImg");
         const closeBtn = document.querySelector(".close-modal");
 
-        // ALL CLICKABLE IMAGES
         document
           .querySelectorAll(
             ".collage-item, .memory-item, .cert-img, .cert-img-secondary",
@@ -897,26 +896,28 @@
               modal.style.display = "block";
               modalImg.src = this.src;
 
-              // Reset first
+              // Reset modal image transform
               modalImg.style.transform = "none";
 
-              // If certificate image is rotated on page, rotate inside modal too
+              /*
+          ROTATE certs in modal EXCEPT Member 4
+          Add class="member4-cert" to Member 4 images in HTML
+        */
               if (
-                this.classList.contains("cert-img") ||
-                this.classList.contains("cert-img-secondary")
+                (this.classList.contains("cert-img") ||
+                  this.classList.contains("cert-img-secondary")) &&
+                !this.classList.contains("member4-cert")
               ) {
                 modalImg.style.transform = "rotate(-90deg)";
               }
             });
           });
 
-        // CLOSE BUTTON
         closeBtn.addEventListener("click", () => {
           modal.style.display = "none";
           modalImg.style.transform = "none";
         });
 
-        // CLICK OUTSIDE TO CLOSE
         modal.addEventListener("click", (e) => {
           if (e.target === modal) {
             modal.style.display = "none";
@@ -924,7 +925,6 @@
           }
         });
 
-        // ESC TO CLOSE
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape") {
             modal.style.display = "none";
